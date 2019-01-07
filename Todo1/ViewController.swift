@@ -8,12 +8,51 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(TodoIndividual.count)
+        return TodoIndividual.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
+        TodoCell.textLabel!.text = TodoIndividual[indexPath.row]
+        //print(TodoIndividual[indexPath.row])
+        //tableView.reloadData()
+        return TodoCell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            TodoIndividual.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        if UserDefaults.standard.object(forKey: "TodoList") != nil {
+            TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as! [String] 
+        }
+
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as? [String] ?? []
+        tableView.reloadData()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
