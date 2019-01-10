@@ -14,6 +14,8 @@ class NewViewController: UIViewController {
 
 
     @IBOutlet weak var TodoText: UITextField!
+    @IBOutlet weak var cornerRoundButton: UIButton!
+    //@IBOutlet weak var roundButton: UIButton!
     
     @IBOutlet weak var dateTextField: UITextField!
     //@IBOutlet weak var datePicker: UIDatePicker!
@@ -49,7 +51,11 @@ class NewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dateTextField.inputView = datePicker
-        // Do any additional setup after loading the view.
+        cornerRoundButton.layer.cornerRadius = 20
+        cornerRoundButton.layer.borderWidth = 1.0
+        cornerRoundButton.layer.borderColor = UIColor(red: 112.0/255.0, green: 112.0/255.0, blue: 112.0/255.0, alpha: 1.0).cgColor
+        cornerRoundButton.clipsToBounds = true
+        
     }
     @objc func datePickerChanged(_ sender: UIDatePicker){
         dateTextField.text = dateFormatter.string(from: sender.date)
