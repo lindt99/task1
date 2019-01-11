@@ -22,8 +22,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
         TodoCell.textLabel!.text = TodoIndividual[indexPath.row]
-        //print(TodoIndividual[indexPath.row])
-        //tableView.reloadData()
         return TodoCell
     }
     
