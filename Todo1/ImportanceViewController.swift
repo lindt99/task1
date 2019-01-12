@@ -26,7 +26,7 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         tableView.isEditing = true
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
-            TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as! [String]
+            TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as? [String] ?? []
         }
         // Do any additional setup after loading the view.
     }

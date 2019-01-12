@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.object(forKey: "TodoList") != nil {
-            TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as! [String] 
+            TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as? [String] ?? []
         }
         roundButton.layer.cornerRadius = 30
         roundButton.layer.borderWidth = 1.0
