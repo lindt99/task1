@@ -31,8 +31,11 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
     }
     
+    //完了ボタン
     @IBAction func goback(){
-        self.dismiss(animated: true)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+
+//        self.dismiss(animated: true)
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

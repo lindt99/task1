@@ -13,9 +13,6 @@
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
         </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-UltraLight</string>
-        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -120,15 +117,8 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="重要度" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-dX-p2U">
-                                <rect key="frame" x="23" y="288" width="329" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="メモ" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qef-dN-KEl">
-                                <rect key="frame" x="23" y="366" width="329" height="235"/>
+                                <rect key="frame" x="23" y="288" width="329" height="313"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -144,17 +134,7 @@
                                 </state>
                                 <connections>
                                     <action selector="TodoNew:" destination="gj8-VX-N6q" eventType="touchUpInside" id="8HT-4W-8Jg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5x-iM-7CS">
-                                <rect key="frame" x="23" y="288" width="329" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="24"/>
-                                <state key="normal" title="重要度">
-                                    <color key="titleColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="hqJ-xV-eYN" kind="show" id="UGn-Ma-GIe"/>
+                                    <segue destination="hqJ-xV-eYN" kind="show" id="bdM-jJ-6ob"/>
                                 </connections>
                             </button>
                         </subviews>

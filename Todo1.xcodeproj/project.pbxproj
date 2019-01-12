@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BAD278BB21E3453100F1836A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAD278B921E3453100F1836A /* Main.storyboard */; };
 		BAD278BD21E788A500F1836A /* ImportanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD278BC21E788A400F1836A /* ImportanceViewController.swift */; };
+		BAD278BF21EA388C00F1836A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD278BE21EA388C00F1836A /* Task.swift */; };
 		BAE4CD8221DA033200D46E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CD8121DA033200D46E62 /* AppDelegate.swift */; };
 		BAE4CD8421DA033200D46E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CD8321DA033200D46E62 /* ViewController.swift */; };
 		BAE4CD8921DA033200D46E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE4CD8821DA033200D46E62 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		BAD278BA21E3453100F1836A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAD278BC21E788A400F1836A /* ImportanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportanceViewController.swift; sourceTree = "<group>"; };
+		BAD278BE21EA388C00F1836A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		BAE4CD7E21DA033200D46E62 /* Todo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE4CD8121DA033200D46E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE4CD8321DA033200D46E62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				BAD278B921E3453100F1836A /* Main.storyboard */,
 				BAE4CDAF21DB7F3A00D46E62 /* NewViewController.swift */,
 				BAD278BC21E788A400F1836A /* ImportanceViewController.swift */,
+				BAD278BE21EA388C00F1836A /* Task.swift */,
 				BAE4CD8821DA033200D46E62 /* Assets.xcassets */,
 				BAE4CD8A21DA033200D46E62 /* LaunchScreen.storyboard */,
 				BAE4CD8D21DA033200D46E62 /* Info.plist */,
@@ -267,6 +270,7 @@
 			files = (
 				BAE4CDB021DB7F3A00D46E62 /* NewViewController.swift in Sources */,
 				BAE4CD8421DA033200D46E62 /* ViewController.swift in Sources */,
+				BAD278BF21EA388C00F1836A /* Task.swift in Sources */,
 				BAD278BD21E788A500F1836A /* ImportanceViewController.swift in Sources */,
 				BAE4CD8221DA033200D46E62 /* AppDelegate.swift in Sources */,
 			);
