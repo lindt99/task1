@@ -25,7 +25,7 @@ class NewViewController: UIViewController {
         TodoText.text = ""
         UserDefaults.standard.set(TodoIndividual, forKey:"ToDoList")
         let task = Task(name: TodoText.text!, deadline: datePicker.date, priority: 0)
-        UserDefaults.set(task)
+        UserDefaults.standard.set(task, forKey:"taskcontent")
         //self.dismiss(animated: true)
     }
     

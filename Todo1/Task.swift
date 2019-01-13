@@ -8,21 +8,33 @@
 
 import Foundation
 
-class Task{
+class Task: NSObject, NSCoding{
     
     var name: String
     var deadline: Date
     var priority: Int
-    
 
-    init(name:String, deadline:Date, priority: Int){
+    public init(name:String, deadline:Date, priority: Int){
         self.name = name
         self.deadline = deadline
         self.priority = priority
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        name = (aDecoder.decodeObject(forKey: "name") as? String)!
+        deadline = (aDecoder.decodeObject(forKey: "deadline") as? Date)!
+        priority = aDecoder.decodeInteger(forKey: "priority")
+    }
     
-    
-    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(deadline, forKey: "deadline")
+        aCoder.encode(priority, forKey: "priority")
+    }
+    // 独自クラスのインスタンスに値を格納
+    let taskData = Task()
+    taskData.name = ""
+    taskData.deadline = ""
+    taskData.priority = ""
     
 }
