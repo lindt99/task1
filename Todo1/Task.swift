@@ -31,10 +31,6 @@ class Task: NSObject, NSCoding{
         aCoder.encode(deadline, forKey: "deadline")
         aCoder.encode(priority, forKey: "priority")
     }
-    // 独自クラスのインスタンスに値を格納
-    let taskData = Task()
-    taskData.name = ""
-    taskData.deadline = ""
-    taskData.priority = ""
+
     
 }

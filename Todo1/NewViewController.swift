@@ -9,6 +9,7 @@
 import UIKit
 
 var TodoIndividual = [String]()
+//var task = [String(), Date(), Int()] as [Any]
 
 class NewViewController: UIViewController {
 
@@ -18,15 +19,20 @@ class NewViewController: UIViewController {
     //@IBOutlet weak var roundButton: UIButton!
     
     @IBOutlet weak var dateTextField: UITextField!
-    //@IBOutlet weak var datePicker: UIDatePicker!
+//    @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func TodoNew(_ sender: Any) {
-        TodoIndividual.append(TodoText.text!)
-        TodoText.text = ""
-        UserDefaults.standard.set(TodoIndividual, forKey:"ToDoList")
-        let task = Task(name: TodoText.text!, deadline: datePicker.date, priority: 0)
-        UserDefaults.standard.set(task, forKey:"taskcontent")
-        //self.dismiss(animated: true)
+        var tasks = UserDefaults.standard.object(forKey: "TodoList") as? [Task] ?? []
+        let task = Task(name: TodoText.text!, deadline: datePicker.date, priority:0)
+        tasks.append(task)
+        UserDefaults.standard.set(tasks, forKey: "TodoList")
+//        TodoIndividual.append(TodoText.text!)
+//        TodoText.text = ""
+//        UserDefaults.standard.set(TodoIndividual, forKey:"ToDoList")
+//        let task = Task(name: TodoText.text!, deadline: datePicker.date, priority: 0)
+//        task.append(TodoText.text, datePicker.date, Int)
+//        UserDefaults.standard.set(task, forKey:"taskcontent")
+//
     }
     
     @IBAction func goback(){
