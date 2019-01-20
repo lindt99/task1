@@ -22,24 +22,29 @@ class NewViewController: UIViewController {
 //    @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func TodoNew(_ sender: Any) {
-        var tasks = UserDefaults.standard.object(forKey: "TodoList") as? [Task] ?? []
-        let task = Task(name: TodoText.text!, deadline: datePicker.date, priority:0)
+        var tasks: [Task] = []
+        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
+        let temp = try?
+            JSONDecoder().decode([Task].self, from:tasksData) {
+            tasks = temp
+        }
+        let task = Task(name: TodoText.text!, deadline: datePicker.date, priority: 0)
         tasks.append(task)
-        UserDefaults.standard.set(tasks, forKey: "TodoList")
-//        TodoIndividual.append(TodoText.text!)
-//        TodoText.text = ""
-//        UserDefaults.standard.set(TodoIndividual, forKey:"ToDoList")
-//        let task = Task(name: TodoText.text!, deadline: datePicker.date, priority: 0)
-//        task.append(TodoText.text, datePicker.date, Int)
-//        UserDefaults.standard.set(task, forKey:"taskcontent")
-//
+        let data = try? JSONEncoder().encode(tasks)
+        UserDefaults.standard.set(data, forKey: "TodoList")
+        
+//        var tasks = UserDefaults.standard.object(forKey: "TodoList") as? [Task] ?? []
+//        let task = Task(name: TodoText.text!, deadline: datePicker.date, priority:0)
+//        tasks.append(task)
+//        UserDefaults.standard.set(tasks, forKey: "TodoList")
+
     }
     
     @IBAction func goback(){
         self.dismiss(animated: true)
     }
     
-    //Pick date
+    
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
@@ -58,6 +63,19 @@ class NewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        var datePicker: UIDatePicker = {
+            let picker = UIDatePicker()
+            picker.datePickerMode = .date
+            picker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
+            return picker
+        }()
+        
+        var dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            return formatter
+        }()
         dateTextField.inputView = datePicker
         cornerRoundButton.layer.cornerRadius = 20
         cornerRoundButton.layer.borderWidth = 1.0
