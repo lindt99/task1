@@ -14,14 +14,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var roundButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var tasks: [Task] = []
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(TodoIndividual.count)
-        return TodoIndividual.count
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
-        TodoCell.textLabel!.text = TodoIndividual[indexPath.row]
+        TodoCell.textLabel!.text = tasks[indexPath.row].name
         return TodoCell
     }
     
@@ -31,16 +32,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            TodoIndividual.remove(at: indexPath.row)
+            tasks.remove(at: indexPath.row)
+            let data = try? JSONEncoder().encode(tasks)
+            UserDefaults.standard.set(data, forKey: "TodoList")
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
-    //table row height
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-//    {
-//        return 50.0;//Choose your custom row height
-//    }
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +54,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as? [String] ?? []
+        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
+            let temp = try?
+                JSONDecoder().decode([Task].self, from:tasksData){
+            tasks = temp
+        }
         tableView.reloadData()
     }
     

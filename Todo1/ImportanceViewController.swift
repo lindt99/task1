@@ -12,13 +12,16 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView: UITableView!
     
+    var tasks: [Task] = []
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TodoIndividual.count
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
-        TodoCell.textLabel!.text = TodoIndividual[indexPath.row]
+        TodoCell.textLabel!.text = tasks[indexPath.row].name
         return TodoCell
     }
     
@@ -33,6 +36,8 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     
     //完了ボタン
     @IBAction func goback(){
+        let taskpriority = Int(tasks[indexPath.row])
+        UserDefaults.standard.set(taskpriority, forKey: "TodoList")
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
 //        self.dismiss(animated: true)
@@ -55,7 +60,11 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as? [String] ?? []
+        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
+            let temp = try?
+                JSONDecoder().decode([Task].self, from:tasksData){
+            tasks = temp
+        }
         tableView.reloadData()
     }
     

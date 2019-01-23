@@ -6,16 +6,18 @@
 //  Copyright © 2019年 本田彩. All rights reserved.
 //
 
+import QuartzCore
 import UIKit
 
 var TodoIndividual = [String]()
-//var task = [String(), Date(), Int()] as [Any]
+
 
 class NewViewController: UIViewController {
 
 
     @IBOutlet weak var TodoText: UITextField!
     @IBOutlet weak var cornerRoundButton: UIButton!
+    @IBOutlet weak var memo: UITextField!
     //@IBOutlet weak var roundButton: UIButton!
     
     @IBOutlet weak var dateTextField: UITextField!
@@ -23,20 +25,19 @@ class NewViewController: UIViewController {
     
     @IBAction func TodoNew(_ sender: Any) {
         var tasks: [Task] = []
+        //take data out from UserDefaults
         if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
+        //change data type to [Task]
         let temp = try?
             JSONDecoder().decode([Task].self, from:tasksData) {
             tasks = temp
         }
         let task = Task(name: TodoText.text!, deadline: datePicker.date, priority: 0)
+        //add new task into Task array
         tasks.append(task)
         let data = try? JSONEncoder().encode(tasks)
+        //Save data to userdefaults
         UserDefaults.standard.set(data, forKey: "TodoList")
-        
-//        var tasks = UserDefaults.standard.object(forKey: "TodoList") as? [Task] ?? []
-//        let task = Task(name: TodoText.text!, deadline: datePicker.date, priority:0)
-//        tasks.append(task)
-//        UserDefaults.standard.set(tasks, forKey: "TodoList")
 
     }
     
@@ -81,7 +82,7 @@ class NewViewController: UIViewController {
         cornerRoundButton.layer.borderWidth = 1.0
         cornerRoundButton.layer.borderColor = UIColor(red: 112.0/255.0, green: 112.0/255.0, blue: 112.0/255.0, alpha: 1.0).cgColor
         cornerRoundButton.clipsToBounds = true
-        
+
     }
     @objc func datePickerChanged(_ sender: UIDatePicker){
         dateTextField.text = dateFormatter.string(from: sender.date)
