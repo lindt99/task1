@@ -36,8 +36,11 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     
     //完了ボタン
     @IBAction func goback(){
-        let taskpriority = Int(tasks[indexPath.row])
-        UserDefaults.standard.set(taskpriority, forKey: "TodoList")
+        for i in 0 ..< tasks.count {
+            tasks[i].priority = i
+            UserDefaults.standard.set(tasks[i].priority, forKey: "TodoList")
+        };
+        
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
 //        self.dismiss(animated: true)
@@ -48,7 +51,12 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        // TODO: 入れ替え時の処理を実装する（データ制御など）
+        // 並び替え対象のタスクを取得
+        let targetTask = tasks[sourceIndexPath.row]
+        // 並び替えるタスクをもともと居た順番から削除
+        tasks.remove(at: sourceIndexPath.row)
+        // 挿入したい位置に並び替え対象のタスクを挿入
+        tasks.insert(targetTask, at: destinationIndexPath.row)
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
