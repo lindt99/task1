@@ -36,10 +36,23 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     
     //完了ボタン
     @IBAction func goback(){
+        var tasks: [Task] = []
         for i in 0 ..< tasks.count {
             tasks[i].priority = i
-            UserDefaults.standard.set(tasks[i].priority, forKey: "TodoList")
         };
+        
+        //take data out from UserDefaults
+        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
+            //change data type to [Task]
+            let temp = try?
+                JSONDecoder().decode([Task].self, from:tasksData) {
+            tasks = temp
+        }
+
+        let data = try? JSONEncoder().encode(tasks)
+        //Save data to userdefaults
+        UserDefaults.standard.set(data, forKey: "TodoList")
+        
         
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
