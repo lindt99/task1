@@ -21,6 +21,7 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
+//        tasks[indexPath.row].priority.sort(by:{$0<tasks.count})
         TodoCell.textLabel!.text = tasks[indexPath.row].name
         return TodoCell
     }
@@ -36,24 +37,16 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     
     //完了ボタン
     @IBAction func goback(){
-        var tasks: [Task] = []
+        
         for i in 0 ..< tasks.count {
             tasks[i].priority = i
         };
-        
-        //take data out from UserDefaults
-        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
-            //change data type to [Task]
-            let temp = try?
-                JSONDecoder().decode([Task].self, from:tasksData) {
-            tasks = temp
-        }
-
         let data = try? JSONEncoder().encode(tasks)
-        //Save data to userdefaults
         UserDefaults.standard.set(data, forKey: "TodoList")
         
-        
+        for task in tasks {
+            print("name: \(task.name), deadline: \(task.deadline), priority: \(task.priority)")
+        }
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
 //        self.dismiss(animated: true)
