@@ -12,11 +12,13 @@ class Task: Codable{
     
     var name: String
     var deadline: Date
+    var importance: Int
     var priority: Int
     
-    public init(name:String, deadline:Date, priority: Int){
+    public init(name:String, deadline:Date, importance: Int, priority: Int){
         self.name = name
         self.deadline = deadline
+        self.importance = importance
         self.priority = priority
     }
 }

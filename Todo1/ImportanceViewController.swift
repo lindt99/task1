@@ -39,18 +39,30 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func goback(){
         
         for i in 0 ..< tasks.count {
-            tasks[i].priority = i
+            tasks[i].importance = i
         };
         let data = try? JSONEncoder().encode(tasks)
         UserDefaults.standard.set(data, forKey: "TodoList")
         
         for task in tasks {
-            print("name: \(task.name), deadline: \(task.deadline), priority: \(task.priority)")
+            print("name: \(task.name), deadline: \(task.deadline), importance: \(task.importance), priority: \(task.priority)")
         }
+        calculatedate()
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
 //        self.dismiss(animated: true)
     }
+    
+    func calculatedate(){
+        let now = Date()
+        var taskDate: Date
+        for i in 0 ..< tasks.count {
+            taskDate = tasks[i].deadline
+            let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day
+            print(diffInDays)
+        };
+    }
+    
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
