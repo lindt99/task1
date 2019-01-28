@@ -32,7 +32,7 @@ class NewViewController: UIViewController {
             JSONDecoder().decode([Task].self, from:tasksData) {
             tasks = temp
         }
-        let task = Task(name: TodoText.text!, deadline: datePicker.date, daysleft: 0, importance: 0, priority: 0)
+        let task = Task(name: TodoText.text!, deadline: datePicker.date, urgency: 0, importance: 0, priority: 0)
         //add new task into Task array
         tasks.append(task)
         let data = try? JSONEncoder().encode(tasks)

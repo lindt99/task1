@@ -38,35 +38,37 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     //完了ボタン
     @IBAction func goback(){
         
-        calculateDate()
-        
+//        calculateDate()
+        //1. 重要度tableviewに表示されている順番でpriorityを更新
         for i in 0 ..< tasks.count {
             tasks[i].importance = i+1
         };
+        //2. deadline順にtasksを並び替えて緊急度を更新
+        tasks.sort { (first, second) -> Bool in
+            first.importance<second.importance
+        }
+        //3.緊急度を更新
+        for i in 0 ..< tasks.count{
+            tasks[i].urgency = i
+            
+            //4. タスクごとにpriorityと緊急度で優先順位を計算
+            tasks[i].priority = tasks[i].importance+tasks[i].urgency
+        }
+        
+        
+        //5. tasksをUserDefaultsに保存
         let data = try? JSONEncoder().encode(tasks)
         UserDefaults.standard.set(data, forKey: "TodoList")
         
+//        calculatePriority()
+        
         for task in tasks {
-            print("name: \(task.name), deadline: \(task.deadline), daysleft: \(task.daysleft), importance: \(task.importance), priority: \(task.priority)")
+            print("name: \(task.name), deadline: \(task.deadline), urgency: \(task.urgency), importance: \(task.importance), priority: \(task.priority)")
         }
         
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
 
-    }
-    
-    func calculateDate(){
-        let now = Date() //現在の日付時刻を取得
-        var taskDate: Date //変数を日付として定義
-        var diffInDays: Date
-        for i in 0 ..< tasks.count {
-            taskDate = tasks[i].deadline //各タスクの期限をtaskDateと定義
-            
-            let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
-            let timeInterval = Int(diffInDays) //diffInDaysを整数型に変換
-            tasks[i].daysleft = timeInterval //timeIntervalをdaysleftに置き換える
-            print(tasks[i].daysleft)
-        };
     }
     
     
@@ -115,5 +117,30 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //    func calculateDate(){
+    //        let now = Date() //現在の日付時刻を取得
+    //        var taskDate: Date //変数を日付として定義
+    //        var diffInDays: Date
+    //        for i in 0 ..< tasks.count {
+    //            taskDate = tasks[i].deadline //各タスクの期限をtaskDateと定義
+    //
+    //            let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
+    //            let timeInterval = Int(diffInDays) //diffInDaysを整数型に変換
+    //            tasks[i].daysleft = timeInterval //timeIntervalをdaysleftに置き換える
+    ////            print(tasks[i].daysleft)
+    //        };
+    //    }
+    
+    //    func calculatePriority(){
+    //        UserDefaults.standard.object(forKey: "TodoList")
+    //        for i in 0 ..< tasks.count {
+    //            let daysleft = tasks[i].daysleft
+    //            let importance = tasks[i].importance
+    //            let pri = daysleft + importance
+    //            print(pri)
+    //        };
+    //
+    //    }
 
 }
