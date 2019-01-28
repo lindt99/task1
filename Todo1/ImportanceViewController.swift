@@ -38,6 +38,8 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     //完了ボタン
     @IBAction func goback(){
         
+        calculateDate()
+        
         for i in 0 ..< tasks.count {
             tasks[i].importance = i
         };
@@ -45,9 +47,9 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
         UserDefaults.standard.set(data, forKey: "TodoList")
         
         for task in tasks {
-            print("name: \(task.name), deadline: \(task.deadline), importance: \(task.importance), priority: \(task.priority)")
+            print("name: \(task.name), deadline: \(task.deadline), daysleft: \(task.daysleft), importance: \(task.importance), priority: \(task.priority)")
         }
-        calculateDate()
+        
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
 
@@ -56,11 +58,28 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
     func calculateDate(){
         let now = Date() //現在の日付時刻を取得
         var taskDate: Date //変数を日付として定義
+        var diffInDays: Date
         for i in 0 ..< tasks.count {
             taskDate = tasks[i].deadline //各タスクの期限をtaskDateと定義
+            
             let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
-            print(diffInDays)
+            let timeInterval = Int(diffInDays)
+            tasks[i].daysleft = timeInterval
+            let savedaysleft = try? JSONEncoder().encode(tasks[i].daysleft)
+            UserDefaults.standard.set(savedaysleft, forKey: "TodoList")
+            
+//            tasks[i].daysleft = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
+//            let encodediffInDays = try? JSONEncoder().encode(tasks[i].daysleft)
+//            UserDefaults.standard.set(encodediffInDays, forKey: "TodoList")
+            
+            
+//            let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
+//            let encodediffInDays = try? JSONEncoder().encode(diffInDays)
+//            UserDefaults.standard.set(encodediffInDays, forKey: "TodoList")
+            print(tasks[i].daysleft)
         };
+        let savedaysleft = try? JSONEncoder().encode(tasks)
+        UserDefaults.standard.set(savedaysleft, forKey: "TodoList")
     }
     
     
