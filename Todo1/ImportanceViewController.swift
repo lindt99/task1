@@ -41,7 +41,7 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
         calculateDate()
         
         for i in 0 ..< tasks.count {
-            tasks[i].importance = i
+            tasks[i].importance = i+1
         };
         let data = try? JSONEncoder().encode(tasks)
         UserDefaults.standard.set(data, forKey: "TodoList")
@@ -63,23 +63,10 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
             taskDate = tasks[i].deadline //各タスクの期限をtaskDateと定義
             
             let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
-            let timeInterval = Int(diffInDays)
-            tasks[i].daysleft = timeInterval
-            let savedaysleft = try? JSONEncoder().encode(tasks[i].daysleft)
-            UserDefaults.standard.set(savedaysleft, forKey: "TodoList")
-            
-//            tasks[i].daysleft = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
-//            let encodediffInDays = try? JSONEncoder().encode(tasks[i].daysleft)
-//            UserDefaults.standard.set(encodediffInDays, forKey: "TodoList")
-            
-            
-//            let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
-//            let encodediffInDays = try? JSONEncoder().encode(diffInDays)
-//            UserDefaults.standard.set(encodediffInDays, forKey: "TodoList")
+            let timeInterval = Int(diffInDays) //diffInDaysを整数型に変換
+            tasks[i].daysleft = timeInterval //timeIntervalをdaysleftに置き換える
             print(tasks[i].daysleft)
         };
-        let savedaysleft = try? JSONEncoder().encode(tasks)
-        UserDefaults.standard.set(savedaysleft, forKey: "TodoList")
     }
     
     
