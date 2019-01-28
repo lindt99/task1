@@ -47,18 +47,18 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
         for task in tasks {
             print("name: \(task.name), deadline: \(task.deadline), importance: \(task.importance), priority: \(task.priority)")
         }
-        calculatedate()
+        calculateDate()
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
-//        self.dismiss(animated: true)
+
     }
     
-    func calculatedate(){
-        let now = Date()
-        var taskDate: Date
+    func calculateDate(){
+        let now = Date() //現在の日付時刻を取得
+        var taskDate: Date //変数を日付として定義
         for i in 0 ..< tasks.count {
-            taskDate = tasks[i].deadline
-            let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day
+            taskDate = tasks[i].deadline //各タスクの期限をtaskDateと定義
+            let diffInDays = Calendar.current.dateComponents([.day], from: now, to: taskDate).day ?? 0 //今日の日付時刻と各タスクの機嫌を比較して日数を返す
             print(diffInDays)
         };
     }

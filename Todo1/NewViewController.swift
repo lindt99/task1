@@ -64,19 +64,6 @@ class NewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var datePicker: UIDatePicker = {
-            let picker = UIDatePicker()
-            picker.datePickerMode = .date
-            picker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
-            return picker
-        }()
-        
-        var dateFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
-            return formatter
-        }()
         dateTextField.inputView = datePicker
         cornerRoundButton.layer.cornerRadius = 20
         cornerRoundButton.layer.borderWidth = 1.0
