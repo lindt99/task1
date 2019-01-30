@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
+        tasks[indexPath.row] = tasks[indexPath.row].priority
         TodoCell.textLabel!.text = tasks[indexPath.row].name
         return TodoCell
     }
