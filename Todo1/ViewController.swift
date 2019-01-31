@@ -11,7 +11,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var roundButton: UIButton!
+    @IBOutlet weak var roundAddButton: UIButton!
+    @IBOutlet weak var roundBackButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var tasks: [Task] = []
@@ -52,13 +53,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if UserDefaults.standard.object(forKey: "TodoList") != nil {
-//            TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as? [String] ?? []
-//        }
-        roundButton.layer.cornerRadius = 30
-        roundButton.layer.borderWidth = 1.0
-        roundButton.layer.borderColor = UIColor(red: 112.0/255.0, green: 112.0/255.0, blue: 112.0/255.0, alpha: 1.0).cgColor
-        roundButton.clipsToBounds = true
+
+        roundAddButton.layer.cornerRadius = 30
+        roundAddButton.layer.borderWidth = 1.0
+        roundAddButton.layer.borderColor = UIColor(red: 112.0/255.0, green: 112.0/255.0, blue: 112.0/255.0, alpha: 1.0).cgColor
+        roundAddButton.clipsToBounds = true
+        roundBackButton.layer.cornerRadius = 30
+        roundBackButton.layer.borderWidth = 1.0
+        roundBackButton.layer.borderColor = UIColor(red: 112.0/255.0, green: 112.0/255.0, blue: 112.0/255.0, alpha: 1.0).cgColor
+        roundBackButton.clipsToBounds = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +80,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func goback(){
+        self.dismiss(animated: true)
+    }
 
 }
 
