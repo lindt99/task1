@@ -36,6 +36,8 @@ class NewViewController: UIViewController {
         //add new task into Task array
         tasks.append(task)
         let data = try? JSONEncoder().encode(tasks)
+        //change order of cells according to values in priority
+        
         //Save data to userdefaults
         UserDefaults.standard.set(data, forKey: "TodoList")
 

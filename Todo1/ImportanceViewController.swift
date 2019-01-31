@@ -45,7 +45,7 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
         };
         //2. deadline順にtasksを並び替えて緊急度を更新
         tasks.sort { (first, second) -> Bool in
-            first.importance<second.importance
+            first.deadline<second.deadline
         }
         //3.緊急度を更新
         for i in 0 ..< tasks.count{
@@ -55,6 +55,9 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
             tasks[i].priority = tasks[i].importance+tasks[i].urgency
         }
         
+        tasks.sort { (third, fourth) -> Bool in
+            third.priority<fourth.priority
+        }
         
         //5. tasksをUserDefaultsに保存
         let data = try? JSONEncoder().encode(tasks)
@@ -65,7 +68,7 @@ class ImportanceViewController: UIViewController, UITableViewDataSource, UITable
         for task in tasks {
             print("name: \(task.name), deadline: \(task.deadline), urgency: \(task.urgency), importance: \(task.importance), priority: \(task.priority)")
         }
-        
+
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 
 

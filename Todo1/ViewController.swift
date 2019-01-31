@@ -22,9 +22,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
-        tasks[indexPath.row] = tasks[indexPath.row].priority
         TodoCell.textLabel!.text = tasks[indexPath.row].name
         return TodoCell
+
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -40,8 +40,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
- 
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        print("accessory button was tapped")
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let TodoCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
+        TodoCell.textLabel!.text = tasks[indexPath.row].name
+        TodoCell.accessoryType = UITableViewCellAccessoryType.checkmark
+        TodoCell.selectionStyle = .none
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        if UserDefaults.standard.object(forKey: "TodoList") != nil {
