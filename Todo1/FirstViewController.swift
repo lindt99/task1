@@ -18,23 +18,45 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
-            let temp = try?
-                JSONDecoder().decode([Task].self, from:tasksData){
-            tasks = temp
-        }
-        nameTextField?.text = tasks[0].name
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
-//        print(tasks)
+//        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
+//            let temp = try?
+//                JSONDecoder().decode([Task].self, from:tasksData){
+//            tasks = temp
+//        }
+//        nameTextField?.text = tasks[0].name
+//        dateFormatter.locale = Locale(identifier: "ja_JP")
+//        dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
+        
         
         cornerRoundButton.layer.cornerRadius = 30
         cornerRoundButton.layer.borderWidth = 1.0
         cornerRoundButton.layer.borderColor = UIColor(red: 112.0/255.0, green: 112.0/255.0, blue: 112.0/255.0, alpha: 1.0).cgColor
         cornerRoundButton.clipsToBounds = true
-        // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
+            let temp = try?
+                JSONDecoder().decode([Task].self, from:tasksData){
+            tasks = temp
+        }
+        if (tasks.count == 0) {
+            nameTextField?.text = "登録されている"
+            dateTextField.text = "タスクはありません"
+        }
+        else{
+        nameTextField?.text = tasks[0].name
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
+        }
+        print(tasks)
+    }
+    //Study for exam 
+    //Write report
+    //Pack for trip
+    //Make presentation
+    //Submit schedule
     @IBAction func nextTask() {
         
         tasks.removeFirst()
@@ -56,24 +78,6 @@ class FirstViewController: UIViewController {
             dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
         }
         
-//        if (tasks.count == 0){
-//            nameTextField?.text = "全てのタスクが"
-//            dateTextField.text = "終わりました！"
-//
-//
-//        }
-//        else if (tasks.count == 1){
-//
-//            nameTextField?.text = tasks[0].name
-//            dateFormatter.locale = Locale(identifier: "ja_JP")
-//            dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
-//        }
-//        else {
-//            tasks.removeFirst()
-//            nameTextField?.text = tasks[0].name
-//            dateFormatter.locale = Locale(identifier: "ja_JP")
-//            dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
-//        }
     }
     
     override func didReceiveMemoryWarning() {
