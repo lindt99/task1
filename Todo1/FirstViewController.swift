@@ -20,7 +20,7 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as? [String] ?? []
         nameTextField.text = tasks[0].name
-        dateTextField.text = String(describing: tasks[0].deadline)
+//        dateTextField.text = String(describing: tasks[0].deadline)
         
         
         cornerRoundButton.layer.cornerRadius = 30
