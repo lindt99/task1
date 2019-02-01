@@ -13,15 +13,20 @@ class FirstViewController: UIViewController {
     var tasks: [Task] = []
     
     @IBOutlet weak var cornerRoundButton: UIButton!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField?
     @IBOutlet weak var dateTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TodoIndividual = UserDefaults.standard.object(forKey: "TodoList") as? [String] ?? []
-        nameTextField.text = tasks[0].name
-//        dateTextField.text = String(describing: tasks[0].deadline)
-        
+        if let tasksData = UserDefaults.standard.object(forKey: "TodoList") as? Data,
+            let temp = try?
+                JSONDecoder().decode([Task].self, from:tasksData){
+            tasks = temp
+        }
+        nameTextField?.text = tasks[0].name
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
+//        print(tasks)
         
         cornerRoundButton.layer.cornerRadius = 30
         cornerRoundButton.layer.borderWidth = 1.0
@@ -30,12 +35,60 @@ class FirstViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func nextTask() {
+        
+        tasks.removeFirst()
+        let data = try? JSONEncoder().encode(tasks)
+        UserDefaults.standard.set(data, forKey: "TodoList")
+        if (tasks.count > 1) {
+            
+            nameTextField?.text = tasks[0].name
+            dateFormatter.locale = Locale(identifier: "ja_JP")
+            dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
+        }
+        else if (tasks.count == 0) {
+            nameTextField?.text = "全てのタスクが"
+            dateTextField.text = "終わりました！"
+        }
+        else{
+            nameTextField?.text = tasks[0].name
+            dateFormatter.locale = Locale(identifier: "ja_JP")
+            dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
+        }
+        
+//        if (tasks.count == 0){
+//            nameTextField?.text = "全てのタスクが"
+//            dateTextField.text = "終わりました！"
+//
+//
+//        }
+//        else if (tasks.count == 1){
+//
+//            nameTextField?.text = tasks[0].name
+//            dateFormatter.locale = Locale(identifier: "ja_JP")
+//            dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
+//        }
+//        else {
+//            tasks.removeFirst()
+//            nameTextField?.text = tasks[0].name
+//            dateFormatter.locale = Locale(identifier: "ja_JP")
+//            dateTextField.text = dateFormatter.string(for: tasks[0].deadline)
+//        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        
+        return formatter
+    }()
+    
     /*
     // MARK: - Navigation
 

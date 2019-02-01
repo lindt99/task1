@@ -135,6 +135,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="TodoNew:" destination="gj8-VX-N6q" eventType="touchUpInside" id="wpI-u8-nfJ"/>
+                                                    <action selector="nextTask" destination="Hdh-g3-jdb" eventType="touchUpInside" id="v5a-5Z-j2o"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タスク名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCz-Bl-Bzc">
