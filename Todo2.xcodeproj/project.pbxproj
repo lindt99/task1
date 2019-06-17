@@ -15,8 +15,8 @@
 		BAE4CD8421DA033200D46E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CD8321DA033200D46E62 /* ViewController.swift */; };
 		BAE4CD8921DA033200D46E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE4CD8821DA033200D46E62 /* Assets.xcassets */; };
 		BAE4CD8C21DA033200D46E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE4CD8A21DA033200D46E62 /* LaunchScreen.storyboard */; };
-		BAE4CD9721DA033200D46E62 /* Todo1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CD9621DA033200D46E62 /* Todo1Tests.swift */; };
-		BAE4CDA221DA033200D46E62 /* Todo1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CDA121DA033200D46E62 /* Todo1UITests.swift */; };
+		BAE4CD9721DA033200D46E62 /* Todo2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CD9621DA033200D46E62 /* Todo2Tests.swift */; };
+		BAE4CDA221DA033200D46E62 /* Todo2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CDA121DA033200D46E62 /* Todo2UITests.swift */; };
 		BAE4CDB021DB7F3A00D46E62 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CDAF21DB7F3A00D46E62 /* NewViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,17 +42,17 @@
 		BAD278BC21E788A400F1836A /* ImportanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportanceViewController.swift; sourceTree = "<group>"; };
 		BAD278BE21EA388C00F1836A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		BAE2A77A2203606E00281367 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BAE4CD7E21DA033200D46E62 /* Todo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE4CD7E21DA033200D46E62 /* Todo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE4CD8121DA033200D46E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE4CD8321DA033200D46E62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAE4CD8821DA033200D46E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE4CD8B21DA033200D46E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE4CD8D21DA033200D46E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAE4CD9221DA033200D46E62 /* Todo1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Todo1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAE4CD9621DA033200D46E62 /* Todo1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo1Tests.swift; sourceTree = "<group>"; };
+		BAE4CD9221DA033200D46E62 /* Todo2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Todo2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE4CD9621DA033200D46E62 /* Todo2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo2Tests.swift; sourceTree = "<group>"; };
 		BAE4CD9821DA033200D46E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAE4CD9D21DA033200D46E62 /* Todo1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Todo1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAE4CDA121DA033200D46E62 /* Todo1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo1UITests.swift; sourceTree = "<group>"; };
+		BAE4CD9D21DA033200D46E62 /* Todo2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Todo2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE4CDA121DA033200D46E62 /* Todo2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo2UITests.swift; sourceTree = "<group>"; };
 		BAE4CDA321DA033200D46E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAE4CDAF21DB7F3A00D46E62 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,9 +85,9 @@
 		BAE4CD7521DA033100D46E62 = {
 			isa = PBXGroup;
 			children = (
-				BAE4CD8021DA033200D46E62 /* Todo1 */,
-				BAE4CD9521DA033200D46E62 /* Todo1Tests */,
-				BAE4CDA021DA033200D46E62 /* Todo1UITests */,
+				BAE4CD8021DA033200D46E62 /* Todo2 */,
+				BAE4CD9521DA033200D46E62 /* Todo2Tests */,
+				BAE4CDA021DA033200D46E62 /* Todo2UITests */,
 				BAE4CD7F21DA033200D46E62 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,14 +95,14 @@
 		BAE4CD7F21DA033200D46E62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BAE4CD7E21DA033200D46E62 /* Todo1.app */,
-				BAE4CD9221DA033200D46E62 /* Todo1Tests.xctest */,
-				BAE4CD9D21DA033200D46E62 /* Todo1UITests.xctest */,
+				BAE4CD7E21DA033200D46E62 /* Todo2.app */,
+				BAE4CD9221DA033200D46E62 /* Todo2Tests.xctest */,
+				BAE4CD9D21DA033200D46E62 /* Todo2UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BAE4CD8021DA033200D46E62 /* Todo1 */ = {
+		BAE4CD8021DA033200D46E62 /* Todo2 */ = {
 			isa = PBXGroup;
 			children = (
 				BAE4CD8121DA033200D46E62 /* AppDelegate.swift */,
@@ -116,33 +116,33 @@
 				BAE4CD8A21DA033200D46E62 /* LaunchScreen.storyboard */,
 				BAE4CD8D21DA033200D46E62 /* Info.plist */,
 			);
-			path = Todo1;
+			path = Todo2;
 			sourceTree = "<group>";
 		};
-		BAE4CD9521DA033200D46E62 /* Todo1Tests */ = {
+		BAE4CD9521DA033200D46E62 /* Todo2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				BAE4CD9621DA033200D46E62 /* Todo1Tests.swift */,
+				BAE4CD9621DA033200D46E62 /* Todo2Tests.swift */,
 				BAE4CD9821DA033200D46E62 /* Info.plist */,
 			);
-			path = Todo1Tests;
+			path = Todo2Tests;
 			sourceTree = "<group>";
 		};
-		BAE4CDA021DA033200D46E62 /* Todo1UITests */ = {
+		BAE4CDA021DA033200D46E62 /* Todo2UITests */ = {
 			isa = PBXGroup;
 			children = (
-				BAE4CDA121DA033200D46E62 /* Todo1UITests.swift */,
+				BAE4CDA121DA033200D46E62 /* Todo2UITests.swift */,
 				BAE4CDA321DA033200D46E62 /* Info.plist */,
 			);
-			path = Todo1UITests;
+			path = Todo2UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BAE4CD7D21DA033200D46E62 /* Todo1 */ = {
+		BAE4CD7D21DA033200D46E62 /* Todo2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BAE4CDA621DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo1" */;
+			buildConfigurationList = BAE4CDA621DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo2" */;
 			buildPhases = (
 				BAE4CD7A21DA033200D46E62 /* Sources */,
 				BAE4CD7B21DA033200D46E62 /* Frameworks */,
@@ -152,14 +152,14 @@
 			);
 			dependencies = (
 			);
-			name = Todo1;
+			name = Todo2;
 			productName = Todo1;
-			productReference = BAE4CD7E21DA033200D46E62 /* Todo1.app */;
+			productReference = BAE4CD7E21DA033200D46E62 /* Todo2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BAE4CD9121DA033200D46E62 /* Todo1Tests */ = {
+		BAE4CD9121DA033200D46E62 /* Todo2Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BAE4CDA921DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo1Tests" */;
+			buildConfigurationList = BAE4CDA921DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo2Tests" */;
 			buildPhases = (
 				BAE4CD8E21DA033200D46E62 /* Sources */,
 				BAE4CD8F21DA033200D46E62 /* Frameworks */,
@@ -170,14 +170,14 @@
 			dependencies = (
 				BAE4CD9421DA033200D46E62 /* PBXTargetDependency */,
 			);
-			name = Todo1Tests;
+			name = Todo2Tests;
 			productName = Todo1Tests;
-			productReference = BAE4CD9221DA033200D46E62 /* Todo1Tests.xctest */;
+			productReference = BAE4CD9221DA033200D46E62 /* Todo2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BAE4CD9C21DA033200D46E62 /* Todo1UITests */ = {
+		BAE4CD9C21DA033200D46E62 /* Todo2UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BAE4CDAC21DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo1UITests" */;
+			buildConfigurationList = BAE4CDAC21DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo2UITests" */;
 			buildPhases = (
 				BAE4CD9921DA033200D46E62 /* Sources */,
 				BAE4CD9A21DA033200D46E62 /* Frameworks */,
@@ -188,9 +188,9 @@
 			dependencies = (
 				BAE4CD9F21DA033200D46E62 /* PBXTargetDependency */,
 			);
-			name = Todo1UITests;
+			name = Todo2UITests;
 			productName = Todo1UITests;
-			productReference = BAE4CD9D21DA033200D46E62 /* Todo1UITests.xctest */;
+			productReference = BAE4CD9D21DA033200D46E62 /* Todo2UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -219,7 +219,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BAE4CD7921DA033100D46E62 /* Build configuration list for PBXProject "Todo1" */;
+			buildConfigurationList = BAE4CD7921DA033100D46E62 /* Build configuration list for PBXProject "Todo2" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -232,9 +232,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BAE4CD7D21DA033200D46E62 /* Todo1 */,
-				BAE4CD9121DA033200D46E62 /* Todo1Tests */,
-				BAE4CD9C21DA033200D46E62 /* Todo1UITests */,
+				BAE4CD7D21DA033200D46E62 /* Todo2 */,
+				BAE4CD9121DA033200D46E62 /* Todo2Tests */,
+				BAE4CD9C21DA033200D46E62 /* Todo2UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAE4CD9721DA033200D46E62 /* Todo1Tests.swift in Sources */,
+				BAE4CD9721DA033200D46E62 /* Todo2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAE4CDA221DA033200D46E62 /* Todo1UITests.swift in Sources */,
+				BAE4CDA221DA033200D46E62 /* Todo2UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,12 +301,12 @@
 /* Begin PBXTargetDependency section */
 		BAE4CD9421DA033200D46E62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BAE4CD7D21DA033200D46E62 /* Todo1 */;
+			target = BAE4CD7D21DA033200D46E62 /* Todo2 */;
 			targetProxy = BAE4CD9321DA033200D46E62 /* PBXContainerItemProxy */;
 		};
 		BAE4CD9F21DA033200D46E62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BAE4CD7D21DA033200D46E62 /* Todo1 */;
+			target = BAE4CD7D21DA033200D46E62 /* Todo2 */;
 			targetProxy = BAE4CD9E21DA033200D46E62 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -444,10 +444,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Todo1/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Todo2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Todo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Todo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,10 +460,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Todo1/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Todo2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Todo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Todo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -482,7 +482,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todo1.app/Todo1";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todo2.app/Todo2";
 			};
 			name = Debug;
 		};
@@ -498,7 +498,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todo1.app/Todo1";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todo2.app/Todo2";
 			};
 			name = Release;
 		};
@@ -535,7 +535,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BAE4CD7921DA033100D46E62 /* Build configuration list for PBXProject "Todo1" */ = {
+		BAE4CD7921DA033100D46E62 /* Build configuration list for PBXProject "Todo2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BAE4CDA421DA033200D46E62 /* Debug */,
@@ -544,7 +544,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BAE4CDA621DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo1" */ = {
+		BAE4CDA621DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BAE4CDA721DA033200D46E62 /* Debug */,
@@ -553,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BAE4CDA921DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo1Tests" */ = {
+		BAE4CDA921DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo2Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BAE4CDAA21DA033200D46E62 /* Debug */,
@@ -562,7 +562,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BAE4CDAC21DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo1UITests" */ = {
+		BAE4CDAC21DA033200D46E62 /* Build configuration list for PBXNativeTarget "Todo2UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BAE4CDAD21DA033200D46E62 /* Debug */,
